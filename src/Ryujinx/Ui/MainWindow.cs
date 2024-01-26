@@ -131,6 +131,7 @@ namespace Ryujinx.Ui
         [GUI] TreeSelection _gameTableSelection;
         [GUI] ScrolledWindow _gameTableWindow;
         [GUI] Label _gpuName;
+        [GUI] Label _gpuDriver;
         [GUI] Label _progressLabel;
         [GUI] Label _firmwareVersionLabel;
         [GUI] Gtk.ProgressBar _progressBar;
@@ -1206,6 +1207,7 @@ namespace Ryujinx.Ui
                 _gameStatus.Text = args.GameStatus;
                 _fifoStatus.Text = args.FifoStatus;
                 _gpuName.Text = args.GpuName;
+                _gpuDriver.Text = args.GpuDriver;
                 _dockedMode.Text = args.DockedMode;
                 _aspectRatio.Text = args.AspectRatio;
                 _gpuBackend.Text = args.GpuBackend;

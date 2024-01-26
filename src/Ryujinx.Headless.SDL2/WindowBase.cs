@@ -80,6 +80,7 @@ namespace Ryujinx.Headless.SDL2
         private bool _isStopped;
         private uint _windowId;
 
+        private string _gpuVendorName;
         private string _gpuDriverName;
 
         private readonly AspectRatio _aspectRatio;
@@ -241,6 +242,12 @@ namespace Ryujinx.Headless.SDL2
 
         public abstract SDL_WindowFlags GetWindowFlags();
 
+        private string GetGpuVendorName()
+        {
+            return Renderer.GetHardwareInfo().GpuVendor;
+        }
+
+
         private string GetGpuDriverName()
         {
             return Renderer.GetHardwareInfo().GpuDriver;
@@ -269,6 +276,7 @@ namespace Ryujinx.Headless.SDL2
 
             SetScalingFilter();
 
+            _gpuVendorName = GetGpuVendorName();
             _gpuDriverName = GetGpuDriverName();
 
             Device.Gpu.Renderer.RunLoop(() =>
@@ -314,7 +322,8 @@ namespace Ryujinx.Headless.SDL2
                             Device.Configuration.AspectRatio.ToText(),
                             $"Game: {Device.Statistics.GetGameFrameRate():00.00} FPS ({Device.Statistics.GetGameFrameTime():00.00} ms)",
                             $"FIFO: {Device.Statistics.GetFifoPercent():0.00} %",
-                            $"GPU: {_gpuDriverName}"));
+                            $"GPU: {_gpuVendorName}",
+                            $"Driver: {_gpuDriverName}"));
 
                         _ticks = Math.Min(_ticks - _ticksPerFrame, _ticksPerFrame);
                     }

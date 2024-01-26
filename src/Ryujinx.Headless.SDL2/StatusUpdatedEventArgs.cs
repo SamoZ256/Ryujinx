@@ -10,8 +10,9 @@ namespace Ryujinx.Headless.SDL2
         public string GameStatus;
         public string FifoStatus;
         public string GpuName;
+        public string DriverName;
 
-        public StatusUpdatedEventArgs(bool vSyncEnabled, string dockedMode, string aspectRatio, string gameStatus, string fifoStatus, string gpuName)
+        public StatusUpdatedEventArgs(bool vSyncEnabled, string dockedMode, string aspectRatio, string gameStatus, string fifoStatus, string gpuName, string driverName)
         {
             VSyncEnabled = vSyncEnabled;
             DockedMode = dockedMode;
@@ -19,6 +20,7 @@ namespace Ryujinx.Headless.SDL2
             GameStatus = gameStatus;
             FifoStatus = fifoStatus;
             GpuName = gpuName;
+            DriverName = driverName;
         }
     }
 }

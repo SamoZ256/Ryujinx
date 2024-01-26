@@ -11,9 +11,10 @@ namespace Ryujinx.Ui
         public string GameStatus;
         public string FifoStatus;
         public string GpuName;
+        public string GpuDriver;
         public string GpuBackend;
 
-        public StatusUpdatedEventArgs(bool vSyncEnabled, float volume, string gpuBackend, string dockedMode, string aspectRatio, string gameStatus, string fifoStatus, string gpuName)
+        public StatusUpdatedEventArgs(bool vSyncEnabled, float volume, string gpuBackend, string dockedMode, string aspectRatio, string gameStatus, string fifoStatus, string gpuName, string gpuDriver)
         {
             VSyncEnabled = vSyncEnabled;
             Volume = volume;
@@ -23,6 +24,7 @@ namespace Ryujinx.Ui
             GameStatus = gameStatus;
             FifoStatus = fifoStatus;
             GpuName = gpuName;
+            GpuDriver = gpuDriver;
         }
     }
 }

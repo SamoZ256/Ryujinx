@@ -62,6 +62,7 @@ namespace Ryujinx.Ava.UI.ViewModels
         private string _gameStatusText;
         private string _volumeStatusText;
         private string _gpuStatusText;
+        private string _gpuDriverText;
         private bool _isAmiiboRequested;
         private bool _isGameRunning;
         private bool _isFullScreen;
@@ -486,6 +487,17 @@ namespace Ryujinx.Ava.UI.ViewModels
             set
             {
                 _gpuStatusText = value;
+
+                OnPropertyChanged();
+            }
+        }
+
+        public string GpuDriverText
+        {
+            get => _gpuDriverText;
+            set
+            {
+                _gpuDriverText = value;
 
                 OnPropertyChanged();
             }
@@ -1213,6 +1225,7 @@ namespace Ryujinx.Ava.UI.ViewModels
                     VolumeStatusText = args.VolumeStatus;
                     FifoStatusText = args.FifoStatus;
                     GpuNameText = args.GpuName;
+                    GpuDriverText = args.DriverName;
                     BackendText = args.GpuBackend;
 
                     ShowStatusSeparator = true;
