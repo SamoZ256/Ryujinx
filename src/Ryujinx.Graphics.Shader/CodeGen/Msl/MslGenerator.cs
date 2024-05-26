@@ -217,6 +217,12 @@ namespace Ryujinx.Graphics.Shader.CodeGen.Msl
 
                     string expr = InstGen.GetExpression(context, operation);
 
+                    // Flip the y position coordinate
+                    if (operation.Inst == IntermediateRepresentation.Instruction.Return && context.Definitions.Stage is ShaderStage.Vertex)
+                    {
+                        context.AppendLine("out.position.y = -out.position.y;");
+                    }
+
                     if (expr != null)
                     {
                         context.AppendLine(expr + ";");
