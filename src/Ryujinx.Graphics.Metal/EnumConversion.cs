@@ -93,10 +93,11 @@ namespace Ryujinx.Graphics.Metal
 
         public static MTLWinding Convert(this FrontFace frontFace)
         {
+            // We need to change the winding because we flip the y position in the shader
             return frontFace switch
             {
-                FrontFace.Clockwise => MTLWinding.Clockwise,
-                FrontFace.CounterClockwise => MTLWinding.CounterClockwise,
+                FrontFace.Clockwise => MTLWinding.CounterClockwise,
+                FrontFace.CounterClockwise => MTLWinding.Clockwise,
                 _ => LogInvalidAndReturn(frontFace, nameof(FrontFace), MTLWinding.Clockwise)
             };
         }
