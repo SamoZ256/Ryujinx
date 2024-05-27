@@ -30,12 +30,16 @@ namespace Ryujinx.Graphics.Metal
     {
         public MTLFunction? VertexFunction = null;
         public MTLFunction? FragmentFunction = null;
+        public MTLFunction? ComputeFunction = null;
 
         public MTLTexture[] FragmentTextures = new MTLTexture[Constants.MaxTextures];
         public MTLSamplerState[] FragmentSamplers = new MTLSamplerState[Constants.MaxSamplers];
 
         public MTLTexture[] VertexTextures = new MTLTexture[Constants.MaxTextures];
         public MTLSamplerState[] VertexSamplers = new MTLSamplerState[Constants.MaxSamplers];
+
+        public MTLTexture[] ComputeTextures = new MTLTexture[Constants.MaxTextures];
+        public MTLSamplerState[] ComputeSamplers = new MTLSamplerState[Constants.MaxSamplers];
 
         public List<BufferInfo> UniformBuffers = [];
         public List<BufferInfo> StorageBuffers = [];
@@ -83,6 +87,8 @@ namespace Ryujinx.Graphics.Metal
             clone.FragmentSamplers = (MTLSamplerState[])FragmentSamplers.Clone();
             clone.VertexTextures = (MTLTexture[])VertexTextures.Clone();
             clone.VertexSamplers = (MTLSamplerState[])VertexSamplers.Clone();
+            clone.FragmentTextures = (MTLTexture[])VertexTextures.Clone();
+            clone.FragmentSamplers = (MTLSamplerState[])VertexSamplers.Clone();
             clone.BlendDescriptors = (BlendDescriptor?[])BlendDescriptors.Clone();
             clone.VertexBuffers = (VertexBufferDescriptor[])VertexBuffers.Clone();
             clone.VertexAttribs = (VertexAttribDescriptor[])VertexAttribs.Clone();
