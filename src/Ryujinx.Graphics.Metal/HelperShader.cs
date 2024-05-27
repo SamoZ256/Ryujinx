@@ -6,8 +6,8 @@ using SharpMetal.Foundation;
 using SharpMetal.Metal;
 using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using System.Runtime.Versioning;
 
 namespace Ryujinx.Graphics.Metal
